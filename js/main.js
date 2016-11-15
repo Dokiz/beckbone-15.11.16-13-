@@ -17,8 +17,13 @@ $(function(){
 				this.$el.html( this.model.get('title') );
 				return this;
 				
+			},
+			events:{
+		          'click': 'showAlert'
+			},
+			showAlert: function(){
+				alert('Вы кликнули по жирку');
 			}
-			
     });
 	
 	App.Collections.Task = Backbone.Collection.extend({
@@ -59,7 +64,7 @@ $(function(){
 	
 	var tasksView = new App.Views.Tasks({ collection: tasksCollection});
 	
-	tasksView.render();
-	$('body').html(tasksView.el);
+	
+	$('.tasks').html(tasksView.render().el);
 		
 });
